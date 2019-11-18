@@ -6,7 +6,7 @@
 #    By: azorkane <azorkane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/10 15:30:39 by azorkane          #+#    #+#              #
-#    Updated: 2019/11/02 05:50:43 by azorkane         ###   ########.fr        #
+#    Updated: 2019/11/18 17:12:47 by azorkane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,16 @@ SRCS_EXTRA=		$(SRC_DIR)/extra/ft_split.c \
 				$(SRC_DIR)/extra/ft_strupcase.c \
 				$(SRC_DIR)/extra/ft_substr.c \
 				$(SRC_DIR)/extra/ft_tolower.c \
-				$(SRC_DIR)/extra/ft_toupper.c
+				$(SRC_DIR)/extra/ft_toupper.c \
+				$(SRC_DIR)/extra/ft_max.c \
+				$(SRC_DIR)/extra/ft_min.c
 SRCS_FILES=		$(SRC_DIR)/files/ft_putchar_fd.c \
 				$(SRC_DIR)/files/ft_putendl_fd.c \
 				$(SRC_DIR)/files/ft_puthex_fd.c \
 				$(SRC_DIR)/files/ft_putnbr_fd.c \
 				$(SRC_DIR)/files/ft_putstr_fd.c \
 				$(SRC_DIR)/files/ft_putunsigned_fd.c
-SRCS_LISTS=		$(SRC_DIR)/lists/ft_lstadd_bac.ck \
+SRCS_LISTS=		$(SRC_DIR)/lists/ft_lstadd_back.c \
 				$(SRC_DIR)/lists/ft_lstadd_front.c \
 				$(SRC_DIR)/lists/ft_lstclear.c \
 				$(SRC_DIR)/lists/ft_lstdelone.c \
@@ -42,7 +44,10 @@ SRCS_STANDARD=	$(SRC_DIR)/standard/ft_atoi.c \
 				$(SRC_DIR)/standard/ft_calloc.c \
 				$(SRC_DIR)/standard/ft_charcount.c \
 				$(SRC_DIR)/standard/ft_count_base.c \
-				$(SRC_DIR)/standard/ft_itoa.c
+				$(SRC_DIR)/standard/ft_itoa.c \
+				$(SRC_DIR)/standard/ft_ltoa_base.c \
+				$(SRC_DIR)/standard/ft_ltoa.c \
+				$(SRC_DIR)/standard/ft_ptoa.c
 SRCS_STRINGS=	$(SRC_DIR)/strings/ft_memccpy.c \
 				$(SRC_DIR)/strings/ft_memchr.c \
 				$(SRC_DIR)/strings/ft_memcmp.c \
@@ -96,7 +101,7 @@ $(NAME): $(OBJ_EXTRA) $(OBJ_FILES) $(OBJ_LISTS) $(OBJ_STANDARD) $(OBJ_STRINGS) $
 	$(CC) $(FLAGS) -I$(INCLUDE_DIR) -c -o $@ $<
 
 clean:
-	rm -f *.o
+	find . -name "*.o" -delete
 fclean: clean
 	rm -f $(NAME)
 re: fclean all

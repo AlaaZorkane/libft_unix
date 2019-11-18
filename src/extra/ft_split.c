@@ -95,7 +95,7 @@ char				**ft_split(char const *s, char c)
 	position = -1;
 	while (++position < word_count)
 	{
-		while (*s == c && s != '\0')
+		while (*s == c && s)
 			s = s + 1;
 		len = ft_wordlen(s, c);
 		if (!(result[position] = (char *)malloc(sizeof(**result) * (len + 1))))
